@@ -27,7 +27,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     //      - Daftarkan route resource untuk PeminjamanController ('peminjaman')
     //      - Daftarkan route PUT '/peminjaman/{peminjaman}/kembali' yang mengarah ke PeminjamanController method 'kembali'
     Route::resource('buku', BukuController::class);
-    Route::resource('anggota', AnggotaController::class);
+    Route::resource('anggota', AnggotaController::class)->parameters(['anggota' => 'anggota']);
     Route::resource('peminjaman', PeminjamanController::class);
 
     Route::put('/peminjaman/{peminjaman}/kembali', [PeminjamanController::class, 'kembali'])->name('peminjaman.kembali');
